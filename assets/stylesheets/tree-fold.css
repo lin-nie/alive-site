@@ -1,0 +1,71 @@
+/* Arrows that fold and unfold headings in the left sidebar tree (see tree-fold.js).
+   Wide screens only: on phones and tablets the sidebar is Material's own sliding
+   drawer, which already opens one level at a time, so the arrows are hidden there. */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary .alive-foldable {
+    position: relative;
+  }
+
+  .md-sidebar--primary .alive-foldable > .md-nav__link {
+    padding-right: 1.4rem;
+  }
+
+  /* Same size, place and chevron as Material's own arrow next to "Main plan".
+     top: the link's top margin collapses into the list item, so the first line
+     of text starts at the item's top edge; centre the arrow on that line. */
+  .md-sidebar--primary .alive-fold {
+    position: absolute;
+    top: calc((1.3em - 0.9rem) / 2);
+    right: 0.4rem;
+    width: 0.9rem;
+    height: 0.9rem;
+    padding: 0;
+    border: 0;
+    border-radius: 100%;
+    background: transparent;
+    color: var(--md-default-fg-color--light);
+    font-size: inherit;
+    cursor: pointer;
+    transition: background-color 0.25s, color 0.25s;
+  }
+
+  .md-sidebar--primary .alive-fold:hover,
+  .md-sidebar--primary .alive-fold:focus-visible {
+    color: var(--md-accent-fg-color);
+    background-color: var(--md-accent-fg-color--transparent);
+    outline: none;
+  }
+
+  .md-sidebar--primary .alive-fold::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: currentcolor;
+    -webkit-mask-image: var(--md-nav-icon--next);
+    mask-image: var(--md-nav-icon--next);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    transform: rotate(90deg);
+    transition: transform 0.25s;
+  }
+
+  .md-sidebar--primary .alive-folded > .alive-fold::before {
+    transform: none;
+  }
+
+  /* !important: Material's own rule that always shows the current page's headings is more specific. */
+  .md-sidebar--primary .alive-folded > nav.md-nav {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 76.234375em) {
+  .md-sidebar--primary .alive-fold {
+    display: none;
+  }
+}

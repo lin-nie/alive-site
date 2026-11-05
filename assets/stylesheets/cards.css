@@ -1,0 +1,101 @@
+/* Cards with small pictures of people and robots (e.g. "Who interacts with whom").
+   All words are in the page; this file only draws the shapes. */
+.alive-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 0.8rem;
+  margin: 1.2em 0;
+}
+
+.md-typeset .alive-card {
+  padding: 0.8rem 0.9rem 0.9rem;
+  border: 0.05rem solid var(--md-default-fg-color--lightest);
+  border-radius: 0.4rem;
+  background: var(--md-default-bg-color);
+}
+
+.md-typeset .alive-card p {
+  margin: 0.5em 0 0;
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+.md-typeset .alive-card .alive-card__title {
+  margin-top: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.alive-card__pic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  height: 3.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.md-typeset .alive-card__tag {
+  display: inline-block;
+  margin-top: 0.3em;
+  padding: 0.1em 0.65em;
+  border: 0.05rem solid transparent;
+  border-radius: 1em;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.md-typeset .alive-card__tag--core {
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+
+.md-typeset .alive-card__tag--next {
+  border-color: var(--md-primary-fg-color);
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .alive-card__tag--later {
+  background: var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+}
+
+.alive-icon,
+.alive-card__link {
+  display: inline-block;
+  flex: none;
+  background-color: currentcolor;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.alive-icon {
+  width: 2.2rem;
+  height: 2.6rem;
+}
+
+.alive-icon--person {
+  color: var(--md-default-fg-color--light);
+  -webkit-mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 48"><circle cx="20" cy="11" r="8.5"/><path d="M5 47c0-13 6.5-20 15-20s15 7 15 20z"/></svg>');
+  mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 48"><circle cx="20" cy="11" r="8.5"/><path d="M5 47c0-13 6.5-20 15-20s15 7 15 20z"/></svg>');
+}
+
+.alive-icon--robot {
+  color: var(--md-primary-fg-color);
+  -webkit-mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 48"><rect x="18.8" y="2" width="2.4" height="7" rx="1.2"/><circle cx="20" cy="3" r="2.6"/><path fill-rule="evenodd" d="M9 9h22a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V14a5 5 0 0 1 5-5zm6 6.5a3 3 0 1 0 0 6 3 3 0 1 0 0-6zm10 0a3 3 0 1 0 0 6 3 3 0 1 0 0-6z"/><rect x="9" y="31" width="22" height="16" rx="4"/></svg>');
+  mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 48"><rect x="18.8" y="2" width="2.4" height="7" rx="1.2"/><circle cx="20" cy="3" r="2.6"/><path fill-rule="evenodd" d="M9 9h22a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V14a5 5 0 0 1 5-5zm6 6.5a3 3 0 1 0 0 6 3 3 0 1 0 0-6zm10 0a3 3 0 1 0 0 6 3 3 0 1 0 0-6z"/><rect x="9" y="31" width="22" height="16" rx="4"/></svg>');
+}
+
+/* A two-way arrow between the people and robots who interact. */
+.alive-card__link {
+  width: 2rem;
+  height: 0.9rem;
+  margin: 0 0.15rem;
+  color: var(--md-default-fg-color--lighter);
+  -webkit-mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16"><path d="M1 8l8-7v5h22V1l8 7-8 7v-5H9v5z"/></svg>');
+  mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16"><path d="M1 8l8-7v5h22V1l8 7-8 7v-5H9v5z"/></svg>');
+}
